@@ -18,9 +18,15 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
-  '/': { view: 'pages/homepage' },
-
+  'GET /': 'AuthController.index',
+  'GET /login': { view: 'pages/login' },
+  'POST /login': 'AuthController.login',
+  'GET /register': { view: 'pages/register' },
+  'POST /usuarios': 'AuthController.register',
+  'GET /failLogin': {view: 'pages/failLogin'},
+  'GET /logout': 'AuthController.logout',
+  'GET /productos': 'AuthController.productos',
+  'POST /pay': 'AuthController.pay'
 
   /***************************************************************************
   *                                                                          *

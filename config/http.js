@@ -28,17 +28,49 @@ module.exports.http = {
     * (This Sails app's routes are handled by the "router" middleware below.)  *
     *                                                                          *
     ***************************************************************************/
+      
+    order: [
+            'cookieParser',
+           'session',
+           'expressSession',
+           'passportInit',
+           'passportSession',
+           'bodyParser',
+           'compress',
+           'poweredBy',
+           'router',
+           'www',
+           'favicon',
+     ],
 
-    // order: [
-    //   'cookieParser',
-    //   'session',
-    //   'bodyParser',
-    //   'compress',
-    //   'poweredBy',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    // ],
+    expressSession    : (function (){
+      var session = require('express-session')
+      var sessionConfig = session({
+        secret: "secret",
+        cookie: {
+            httpOnly: false,
+            secure: false,
+            maxAge: 6000000
+        },
+        rolling: true,
+        resave: true,
+        saveUninitialized: false
+      })
+      return sessionConfig;
+    })(),
+
+    passportInit    : (function (){
+      var passport = require('passport');
+      var reqResNextFn = passport.initialize();
+      return reqResNextFn;
+    })(),
+
+    passportSession : (function (){
+      var passport = require('passport');
+      var reqResNextFn = passport.session();
+      return reqResNextFn;
+    })()
+
 
 
     /***************************************************************************

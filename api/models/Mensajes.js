@@ -14,7 +14,6 @@ module.exports = {
         edad: {type: 'number', required: true},
         alias: { type: 'string', required: true },
         avatar: { type: 'string', required: true },
-        fecha: { type: 'string', required: true },
         text: { type: 'string', required: true }
       
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗

@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-    email: { type: 'string', required: true },
+    username: { type: 'string', required: true },
     password: { type: 'string', required: true },
     nombre: { type: 'string', required: true },
     direccion: { type: 'string', required: true },
